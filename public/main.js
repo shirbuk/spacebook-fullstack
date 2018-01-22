@@ -4,7 +4,24 @@ var SpacebookApp = function() {
 
   var $posts = $(".posts");
 
-  _renderPosts();
+  function getApi() {
+    $.ajax({
+      method: "GET",
+      dataType: 'json',
+      url: 'posts',
+      success: function(data) {
+        console.log(data);
+        posts = data;
+        _renderPosts();
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        console.log(textStatus);
+    }
+}); 
+  }
+  getApi();
+
+ 
 
   function _renderPosts() {
     $posts.empty();
@@ -19,8 +36,19 @@ var SpacebookApp = function() {
   }
 
   function addPost(newPost) {
-    posts.push({ text: newPost, comments: [] });
-    _renderPosts();
+    $.ajax({
+      type: "POST",
+      dataType: "json",
+      url: 'posts/addpost',
+      data: {
+        text: newPost,
+        comments: []
+      },
+      success: function(data) {
+        posts.push(data);
+        _renderPosts();
+      }
+    });
   }
 
 
@@ -37,20 +65,47 @@ var SpacebookApp = function() {
   }
 
   var removePost = function(index) {
-    posts.splice(index, 1);
-    _renderPosts();
+    $.ajax ({
+      type: "DELETE",
+      url: 'delete/' + posts[index]._id,
+      success: function(data) {
+        getApi();
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        console.log(textStatus);
+      }
+    });
   };
 
   var addComment = function(newComment, postIndex) {
-    posts[postIndex].comments.push(newComment);
-    _renderComments(postIndex);
+    $.ajax ({
+      type: "POST",
+      dataType: 'json',
+      url: 'comment/' + posts[postIndex]._id,
+      data: newComment,
+      success: function(data) {
+        getApi();
+      },
+      error: function ( jqXHR, textStatus, errorThrown) {
+        console.log(textStatus);
+      }
+    })
   };
 
 
   var deleteComment = function(postIndex, commentIndex) {
-    posts[postIndex].comments.splice(commentIndex, 1);
-    _renderComments(postIndex);
-  };
+    $.ajax ({
+      type: 'DELETE',
+      // url:"/delete/postId/comment/commentId",
+      url: '/delete/' + posts[postIndex]._id + '/comment/' + posts[postIndex].comments[commentIndex]._id,
+      success: function(data) {
+        getApi();
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        console.log(textStatus);
+      }
+    })
+  }
 
   return {
     addPost: addPost,

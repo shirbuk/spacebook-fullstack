@@ -1,9 +1,10 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-mongoose.connect(process.env.CONNECTION_STRING || 'mongodb://localhost/spacebookDB', function () {
-  console.log("DB connection established!!!");
-})
+mongoose.connect(process.env.CONNECTION_STRING 
+//   || 'mongodb://localhost/spacebookDB', function () {
+//   console.log("DB connection established!!!");
+// })
 
 var Post = require('./models/postModel');
 
@@ -72,7 +73,8 @@ app.post('/comment/:postId', function (req, res) {
 });
 
 
-app.listen(process.env.PORT || '8080', function () {
-  console.log("what do you want from me! get me on 8000 ;-)");
-});
+app.listen(process.env.PORT)
+//  || '8080', function () {
+//   console.log("what do you want from me! get me on 8000 ;-)");
+// });
 

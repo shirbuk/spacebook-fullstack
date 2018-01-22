@@ -13,10 +13,10 @@ app.use(express.static('node_modules'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-var post1 = new Post({
-  text: "hello world",
-})
-post1.comments.push({ text: "hi shir", user: "david" })
+// var post1 = new Post({
+//   text: "hello world",
+// })
+// post1.comments.push({ text: "hi shir", user: "david" })
 // post1.save()
 
 

@@ -2,9 +2,9 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 mongoose.connect(process.env.CONNECTION_STRING 
-//   || 'mongodb://localhost/spacebookDB', function () {
-//   console.log("DB connection established!!!");
-// })
+  || 'mongodb://localhost/spacebookDB', function () {
+  console.log("DB connection established!!!");
+})
 
 var Post = require('./models/postModel');
 

@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
-  "dependencies": {
-    "nodemon": "^1.14.11"
-  },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -17,7 +14,14 @@
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "bootstrap": "^3.3.7",
+    "express": "^4.16.2",
+    "handlebars": "^4.0.10",
+    "jquery": "^3.2.1",
+    "mongoose": "^4.10.7",
+    "nodemon": "^1.14.11",
     "url": "https://github.com/shirbuk/spacebook-fullstack/issues"
   },
   "homepage": "https://github.com/shirbuk/spacebook-fullstack#readme"

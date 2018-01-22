@@ -1,22 +1,19 @@
 {
-  "name": "spacebook-c2",
+  "name": "spacebook-fullstack",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/swinston1000/spacebook-c2.git"
+    "url": "git+https://github.com/shirbuk/spacebook-fullstack.git"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/swinston1000/spacebook-c2/issues"
-  },
-  "homepage": "https://github.com/swinston1000/spacebook-c2#readme",
   "dependencies": {
     "body-parser": "^1.17.2",
     "bootstrap": "^3.3.7",
@@ -24,6 +21,8 @@
     "handlebars": "^4.0.10",
     "jquery": "^3.2.1",
     "mongoose": "^4.10.7",
-    "nodemon": "^1.14.11"
-  }
+    "nodemon": "^1.14.11",
+    "url": "https://github.com/shirbuk/spacebook-fullstack/issues"
+  },
+  "homepage": "https://github.com/shirbuk/spacebook-fullstack#readme"
 }
